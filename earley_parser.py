@@ -184,6 +184,10 @@ if __name__ == "__main__":
 
     setrecursionlimit(50)
 
+    from pprint import pprint
+    from json import dumps
+    from helpers import chars, range_number
+
     gramatica = [
         Rule("Sum", ["Sum", chars("+-"), "Product"]),
         Rule("Sum", ["Product"]),
@@ -194,9 +198,6 @@ if __name__ == "__main__":
         Rule("Number", [range_number("09"), "Number"]),
         Rule("Number", [range_number("09")]),
     ]
-
-    from pprint import pprint
-    from json import dumps
 
     string = "1+(2*3-4)"
     states = build_items(gramatica, string, "Sum")
